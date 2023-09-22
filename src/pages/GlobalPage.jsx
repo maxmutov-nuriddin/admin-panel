@@ -1,5 +1,6 @@
 import { Progress, Space } from 'antd';
 import { useEffect, useState } from "react";
+import { QRCode } from 'antd';
 import request from '../server';
 
 
@@ -7,9 +8,10 @@ const GlobalPage = () => {
   const [data, setData] = useState([]);
   const [datas, setDatas] = useState([]);
   const [loading, setLoading] = useState(false)
+  const [text, setText] = useState('https://lambent-semifreddo-2c1103.netlify.app/');
 
 
-  
+
   useEffect(() => {
     getDatas();
   }, []);
@@ -56,7 +58,7 @@ const GlobalPage = () => {
         <Space wrap>
           <Progress type="dashboard" percent={datas.length} />
         </Space>
-        <div style={{width: '60%'}}>
+        <div style={{ width: '60%' }}>
           <Progress
             percent={datas.length}
             status="active"
@@ -76,6 +78,12 @@ const GlobalPage = () => {
         </div>
         <Space wrap>
           <Progress type="dashboard" percent={data.length} />
+        </Space>
+      </div>
+
+      <div style={{position: 'absolute', left: '50%'}}>
+        <Space direction="vertical" align="center">
+          <QRCode value={text || '-'} />
         </Space>
       </div>
     </div>
