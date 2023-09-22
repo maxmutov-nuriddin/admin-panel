@@ -11,23 +11,26 @@ import GlobalPage from "./pages/GlobalPage";
 import StudentsPage from "./pages/StudentsPage";
 
 import './App.css'
+import { Watermark } from "antd";
 
 function App() {
 
   return (
+    <Watermark content="mv_nuriddin">
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to='/login' />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Routes>
+          <Route path="/" element={<Navigate to='/login' />} />
+          <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/" element={<AdminLayout />}>
-          <Route path="global" element={<GlobalPage />} />
-          <Route path="teacher" element={<TeacherPage />} />
-          <Route path="student" element={<StudentPage />} />
-          <Route path="students/:id" element={<StudentsPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="global" element={<GlobalPage />} />
+            <Route path="teacher" element={<TeacherPage />} />
+            <Route path="student" element={<StudentPage />} />
+            <Route path="students/:id" element={<StudentsPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Watermark>
   )
 }
 

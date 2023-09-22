@@ -92,7 +92,7 @@ const TeacherPage = () => {
         <Space size="middle">
           <button className='edit-btn' id={record.id} onClick={() => handleEditClick(record.id)}>Edit</button>
           <button className='delete-btn' id={record.id} onClick={handleDeleteClick}>Delete</button>
-          <button className='see-btn'><Link to={`/students/${record.id}`}>See</Link></button>
+          <button className='see-btn' ><Link to={`/students/${record.id}`}>See</Link></button>
         </Space>
       ),
     },

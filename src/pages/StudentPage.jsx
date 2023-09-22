@@ -7,17 +7,18 @@ const StudentPage = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false)
 
+
   useEffect(() => {
     getData();
   }, []);
-  
+
   async function getData() {
     try {
       setLoading(true);
       let { data } = await request.get("Teacher");
-  
+
       const promises = data.map((teacher) => request.get(`Teacher/${teacher.id}/Students`));
-  
+
       const results = await Promise.all(promises);
       const flattenedData = results.map(response => response.data).flat();
       setData(flattenedData);
@@ -27,6 +28,7 @@ const StudentPage = () => {
       setLoading(false);
     }
   }
+
 
 
   const columns = [
